@@ -249,6 +249,7 @@ const flags = [
     },
   ]
 let containerid =document.getElementById("containerid")
+let seacrh =document.getElementById("search")
 console.log(containerid)  
 {/* <div class="card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg" alt="Flag-of-Afghanistan">
@@ -270,4 +271,10 @@ function displayedCountries(countries) {
         containerid.append(card)
     });
 }
+seacrh.addEventListener("input",function(){
+  const searchinput =this.value.toLowerCase()
+  const filteredcountries =flags.filter((flag)=>
+  flag.name.toLowerCase().includes(searchinput))
+  displayedCountries(filteredcountries)
+})
 displayedCountries(flags)
